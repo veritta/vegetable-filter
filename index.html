@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="main.js"></script>
+	<style>
+		#result {
+			border: 1px solid #666;
+			display: block;
+			font-family: monospace;
+			font-size: 1.2em;
+			margin-top: 2em;
+			padding: 1em;
+			height: 20em;
+			white-space: pre;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="location.reload()">Run</button>
+	<div id="result">Error</div>
+	<script>
+		var box = document.getElementById('result');
+		var result = main();
+		try {
+			if (result.constructor === Array)
+				result = result.join(',\n');
+			else
+				result = result.toString();
+		} catch (e) {}
+		box.innerText = result;		
+	</script>
+</body>
+</html>
